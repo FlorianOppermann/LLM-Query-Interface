@@ -23,43 +23,43 @@ LLM-Query-Interface is a Flask-based web application that acts as an intermediar
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/yourusername/llm-query-interface.git
-    ```
-2.	Navigate to the Project Directory:
-  ```bash
-  cd llm-query-interface
-  ```
-3.	Create a Virtual Environment (Optional but Recommended):
-  ```bash
-  python -m venv venv
-  source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-  ```
+   ```
+2. **Navigate to the Project Directory:**
 
-4.	Install Dependencies:
-  ```
-  pip install -r requirements.txt
-  ```
-  (If a requirements.txt file is not present, manually install Flask, requests, PyPDF2, and Werkzeug.)
+   ```bash
+   cd llm-query-interface
+   ```
+3. **Create a Virtual Environment (Optional but Recommended):**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+4. **Install Dependencies:**
+   ```
+   pip install -r requirements.txt
+   ```
+   (If a requirements.txt file is not present, manually install Flask, requests, PyPDF2, and Werkzeug.)
 
 Configuration
-	•	LLM API URL: The LLM_API_URL is currently set to http://localhost:11434/api/chat in main.py (standard when using Ollama). Update this URL if your LLM API is hosted elsewhere.
-	•	Upload Folder: PDF files are stored in the uploads directory. This folder is created automatically if it does not exist.
+- LLM API URL: The LLM_API_URL is currently set to http://localhost:11434/api/chat in main.py (standard when using Ollama). Update this URL if your LLM API is hosted elsewhere.
+- Upload Folder: PDF files are stored in the uploads directory. This folder is created automatically if it does not exist.
 
 Running the Application
 Start the Flask application by running:
-  ```bash
-  python main.py
-  ```
+	```
+  	python main.py
+  	```
 The app will be available at http://localhost:5000. Use the web interface to upload a PDF, enter your query, and receive the LLM’s response.
 
 API Endpoints
-	•	GET /
-    Renders the main interface (index.html).
-	•	POST /upload_pdf
-    Upload a PDF file. The file is saved to the uploads folder and its text is extracted and cached.
-	•	POST /query_llm_input
-    Receives user input (JSON) and caches it for later use.
-	•	GET /query_llm
-    Combines the cached PDF text and user input, sends the combined query to the LLM API, and returns the formatted response.
+- GET /
+- Renders the main interface (index.html).
+- POST /upload_pdf
+- Upload a PDF file. The file is saved to the uploads folder and its text is extracted and cached.
+- POST /query_llm_input
+- Receives user input (JSON) and caches it for later use.
+- GET /query_llm
+- Combines the cached PDF text and user input, sends the combined query to the LLM API, and returns the formatted response.
 
 Disclaimer
 Please note that this software is currently developed for personal use and testing purposes. The code is not fully optimized or polished for production environments and might have rough edges.
